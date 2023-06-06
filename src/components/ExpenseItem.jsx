@@ -1,16 +1,19 @@
 import React from 'react'
 import './ExpenseItem.css'
+import ExpenseDate from "./ExpenseDate"
+import Card from './Card'
 
 const ExpenseItem = (expenses) => {
+  // console.log(expenses);
 
   return (
-    <div className='expense-item'>
-        <div>{expenses.date.toISOString()}</div>
+    <Card className='expense-item'>
+        <ExpenseDate date={expenses.date}/>
         <div className='expense-item__description'>
             <h2>{expenses.title}</h2>
             <div className='expense-item__price'>{expenses.amount}zł</div>
         </div>
-    </div>
+    </Card>
   )
 }
 
