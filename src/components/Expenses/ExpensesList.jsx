@@ -9,29 +9,21 @@ const ExpensesList = ({ expenses }) => {
   const filterByDate = (selectedDate) => {
     setFilteredYear(selectedDate);
   };
+
+  const filteredExpenses = expenses.filter((item) => {
+    return item.date.getFullYear().toString() === filteredYear;
+  });
   return (
     <Card className="expenses">
       <ExpensesFilter selected={filteredYear} onSelectedDate={filterByDate} />
-      <ExpenseItem
-        title={expenses[0].title}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      />
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      />
-      <ExpenseItem
-        title={expenses[2].title}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      />
-      <ExpenseItem
-        title={expenses[3].title}
-        amount={expenses[3].amount}
-        date={expenses[3].date}
-      />
+      {filteredExpenses.map((expensesList) => (
+        <ExpenseItem
+          key={Math.random()}
+          title={expensesList.title}
+          amount={expensesList.amount}
+          date={expensesList.date}
+        />
+      ))}
     </Card>
   );
 };
