@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./ExpensesFilter.css";
+import "./styles/ExpensesFilter.css";
 
 const ExpensesFilter = (props) => {
   const onChangeDateHandler = (event) => {

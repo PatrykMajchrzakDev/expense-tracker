@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ExpenseForm.css";
+import "./styles/ExpenseForm.css";
 
 const ExpenseForm = (props) => {
   //Defines object for user input
@@ -15,7 +15,7 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: userInput.enteredTitle,
-      amount: userInput.enteredAmount,
+      amount: +userInput.enteredAmount,
       date: new Date(userInput.enteredDate),
     };
 
@@ -49,6 +49,10 @@ const ExpenseForm = (props) => {
     });
   };
 
+  const cancelAddContainerHandler = () => {
+    props.onCancel();
+  };
+
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
@@ -80,6 +84,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={cancelAddContainerHandler}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

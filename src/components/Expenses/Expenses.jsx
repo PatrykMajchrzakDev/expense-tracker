@@ -1,6 +1,6 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
-import "./Expenses.css";
+import "./styles/Expenses.css";
 
 const Expenses = (props) => {
   if (props.items.length === 0) {
